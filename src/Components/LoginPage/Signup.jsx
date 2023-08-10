@@ -17,7 +17,7 @@ import {
   import { useState } from 'react';
   import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
   import {Link,useNavigate} from "react-router-dom"
-  import Login from './Login';
+  // import Login from './Login';
   
   
   export default function Signup() {

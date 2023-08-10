@@ -231,7 +231,7 @@ const Home = () => {
                 height="400px"
                 style={{ position: 'relative' }}
               >
-                <img
+                <Image
                   src={image}
                   alt={`Image ${windowStart + index + 1}`}
                   style={{ width: '100%', height: '100%' }}

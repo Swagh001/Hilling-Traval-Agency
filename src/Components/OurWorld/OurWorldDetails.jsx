@@ -17,7 +17,7 @@ import {
   useColorModeValue,
   StackDivider,
   // HStack,
-  useBreakpointValue,
+  // useBreakpointValue,
 } from "@chakra-ui/react";
 // import { StarIcon } from "@chakra-ui/icons";
 

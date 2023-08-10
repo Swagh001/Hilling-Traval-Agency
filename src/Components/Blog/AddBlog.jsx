@@ -2,21 +2,21 @@ import React from 'react';
 import axios from "axios";
 import {
     Box,
-    Form,
-    Flex,
+    // Form,
+    // Flex,
     Input,
-    HStack,
-    Heading,
-    Link,
+    // HStack,
+    // Heading,
+    // Link,
     Button,
     FormControl,
     FormLabel,
-    Grid,
-    Img,
-    Text,
-    Wrap,
-    Image,
-    WrapItem
+    // Grid,
+    // Img,
+    // Text,
+    // Wrap,
+    // Image,
+    // WrapItem
 } from '@chakra-ui/react';
 import {useNavigate} from "react-router-dom"
 
@@ -27,7 +27,7 @@ const BlogPost = () => {
         e.preventDefault();
         const res = await axios.post(`https://database-aliu.onrender.com/blog`,data);
         console.log(res);
-        if(res.status == 201){
+        if(res.status === 201){
 Navigate("/blog")
         }
         else{
