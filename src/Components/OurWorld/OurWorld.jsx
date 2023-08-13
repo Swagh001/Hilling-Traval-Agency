@@ -25,8 +25,19 @@ const OurWorld = () => {
   const [searchResults, setSearchResults] = useState([]);
 
   const fetchData = async () => {
-    const res = await axios.get("https://database-aliu.onrender.com/property");
+   try{
+    const res = await axios("http://localhost:8081/data",{
+      headers:{
+        "Content-type": "application/json",
+        "Authorization": `Bearer ${localStorage.getItem("token")}`
+      },
+    })
+    // console.log(res);
     setProperties(res.data);
+   }
+   catch(err){
+    console.log(err);
+   }
   };
 
   const handleSearch = () => {
@@ -281,7 +292,7 @@ const OurWorld = () => {
                   <Box as="span" ml="2" color="gray.600" fontSize="sm">
                     {property.reviewCount} reviews
                   </Box>
-                  <Link to={`/ourworlds/${property.id}`}>
+                  <Link to={`/ourworlds/${property._id}`}>
                     <Button
                       ml={"80px"}
                       fontSize={"20px"}

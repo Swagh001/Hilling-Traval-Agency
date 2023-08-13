@@ -17,6 +17,7 @@ import {
   import { useContext, useState } from "react";
   import { useNavigate ,Link} from "react-router-dom";
   import { AuthContext } from "../../ContextApi/AuthcontextProvider";
+  import axios from 'axios';
   
   
   export default function Login() {
@@ -29,30 +30,34 @@ import {
   
     const handleLogin = (e) => {
       e.preventDefault();
-      const userData = JSON.parse(localStorage.getItem("user"));
-      if(userData){
-        if(userData.email === email && userData.password === password){
-          localStorage.setItem("auth", JSON.stringify(true))
-          toast({
-            title: 'Welcome to HILLING TRAVEL AGENCY.',
-            status: 'success',
-            duration: 2000,
-            isClosable: true,
+      let userData=async()=>{
+        try{
+          let res= await axios.post(`http://localhost:8081/login`,{
+            email: email,
+            password: password,
           })
-          login()
-          Navigate("/")
-
-          
-        }else if (userData.email !==email || userData.password!==password){
-          toast({
-            title: 'Please Check your Email & Password',
-            status: 'error',
-            position:'top',
-            duration: 2000,
-            isClosable: true,
-          })
+          // const token = res.data.token;
+          // localStorage.setItem("token", token);
+          // axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+          console.log(res);
+          if(res.data==='error'){
+            alert("user not found")
+          }
+          else if(res.data==='wrong'){
+            alert("wrong details")
+          }
+          else{
+            alert("login Done");
+            const token = res.data.token;
+            localStorage.setItem("token", token);
+            // Navigate("/");
+          }
         }
+        catch(err){
+          console.log(err)
         }
+      }
+      userData();
     };
 
 

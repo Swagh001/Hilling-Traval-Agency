@@ -31,8 +31,19 @@ const OurWorldDetails = () => {
   }, []);
 
   const fetchData = async () => {
-    const res = await axios.get(`https://database-aliu.onrender.com/property/${id}`);
-    setProperty(res.data);
+    const res = await axios.get(`http://localhost:8081/data/${id}`);
+    console.log(res.data.data2);
+    // console.log(res.data.data);
+    let singledata=(res.data.data).filter((elem)=>{
+      // // console.log(elem._id)
+      // console.log(res.data.data2[0]._id);
+      // console.log(" ");
+      if(elem._id==res.data.data2){
+        return elem;
+      }
+    })
+    console.log(singledata);
+    setProperty(singledata[0]);
   };
   return (
     <div>

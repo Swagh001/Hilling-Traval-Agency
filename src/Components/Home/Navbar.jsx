@@ -28,6 +28,8 @@ export default function Navbar() {
   const linkHoverColor = useColorModeValue('gray.800', 'white');
   const popoverContentBgColor = useColorModeValue('white', 'gray.800');
 
+
+
   return (
     <Box>
       <Flex
@@ -81,6 +83,7 @@ export default function Navbar() {
           direction={'row'}
           spacing={6}
         >
+          {/* check local storage */}
           <Button
             as={'a'}
             fontSize={'sm'}

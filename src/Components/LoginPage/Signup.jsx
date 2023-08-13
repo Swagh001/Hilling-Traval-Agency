@@ -17,6 +17,7 @@ import {
   import { useState } from 'react';
   import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
   import {Link,useNavigate} from "react-router-dom"
+import axios from 'axios';
   // import Login from './Login';
   
   
@@ -64,8 +65,22 @@ import {
           isClosable: true,
         })
       } 
-      localStorage.setItem("user", JSON.stringify(newUsername))
-     
+      // localStorage.setItem("user", JSON.stringify(newUsername))
+      let userData=async()=>{
+        try{
+          let res= await axios.post(`http://localhost:8081/signup`,{
+            fname: newUsername.name,
+            lname: newUsername.lastname,
+            email: newUsername.email,
+            password: newUsername.password,
+        })
+        // console.log(newUsername);
+        }
+        catch(err){
+          console.log(err)
+        }
+      }
+      userData();
     }
   
     return (
@@ -106,6 +121,8 @@ import {
                     <Input type="text"
                      variant="filled"
                      bg={"purple.50"}
+                     value={newUsername.lastname}
+                      onChange={(e) => setNewUsername({...newUsername, lastname:e.target.value})}
                      />
                   </FormControl>
                 </Box>
