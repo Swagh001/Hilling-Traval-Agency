@@ -112,7 +112,7 @@ const OurWorld = () => {
               bg={"white"}
               p="3px"
               borderRadius={"10px"}
-              gap={"2px"}
+              gap={"10px"}
               direction={{ base: "column", md: "row" }}
               spacing={{ base: "10px", md: "2px" }}
             >
@@ -136,14 +136,14 @@ const OurWorld = () => {
                 type="date"
                 bg="white"
               />
-              <Input
+              {/* <Input
                 borderWidth="3px"
                 borderColor="gray.300"
                 width={{ base: "100%", md: "350px" }}
                 placeholder="No of persons "
                 size="lg"
                 bg="white"
-              />
+              /> */}
               <Button
                 fontSize={"20px"}
                 size="lg"

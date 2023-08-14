@@ -30,7 +30,7 @@ const Blog = () => {
     const[data,setData] = React.useState([]);
 
       const fetchData = async () => {
-        const res = await axios.get("https://database-aliu.onrender.com/blog");
+        const res = await axios.get("http://localhost:8081/blog");
         setData(res.data);
       };
     React.useEffect(()=>{
@@ -96,7 +96,7 @@ const Blog = () => {
                    
                 </Flex>
             </Grid>
-            <Box mt={"100px"} >
+            <Box mt={"100px"} marginTop={"150px"}>
                 <Flex justifyContent={"center"}>
                     <Grid templateColumns={{sm:"repeat(1, 1fr)",md:"repeat(2, 1fr)",lg:"repeat(4, 1fr)"}}>
                         {data.map((post) => {
@@ -133,7 +133,7 @@ const Blog = () => {
                                         <Text as="p" fontSize="md" marginTop="2">
                                             {post.desc}
                                         </Text>
-                                        <Button background={"rgb(124, 141, 211)"} mt={"1em"} color={"white"}><Link to={"/blog/"+post.id}>Read More</Link></Button>
+                                        <Button background={"rgb(124, 141, 211)"} mt={"1em"} color={"white"}><Link to={"/blog/"+post._id}>Read More</Link></Button>
                                     </Box>
                                 </WrapItem>
                             </Wrap>

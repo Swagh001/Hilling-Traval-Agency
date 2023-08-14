@@ -25,10 +25,16 @@ const BlogPost = () => {
     const Navigate = useNavigate();
       const fetchData = async (e) => {
         e.preventDefault();
-        const res = await axios.post(`https://database-aliu.onrender.com/blog`,data);
-        console.log(res);
-        if(res.status === 201){
-Navigate("/blog")
+        const res = await axios.post(`http://localhost:8081/blog`,{
+          name:data.name,
+          author:data.author,
+          date:data.date,
+          img:data.img,
+          desc:data.desc
+        });
+        // console.log(res);
+        if(res.status === 200){
+            Navigate("/blog")
         }
         else{
           alert("Some error occured. Please try again.")
@@ -36,7 +42,7 @@ Navigate("/blog")
        
       };
       const handleClick = (e)=>{
-        console.log(e.target.value);
+        // console.log(e.target.value);
 setData({...data,[e.target.name]:e.target.value})
       }
 
