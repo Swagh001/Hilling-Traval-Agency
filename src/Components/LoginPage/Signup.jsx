@@ -68,7 +68,8 @@ import axios from 'axios';
       // localStorage.setItem("user", JSON.stringify(newUsername))
       let userData=async()=>{
         try{
-          let res= await axios.post(`http://localhost:8081/signup`,{
+          // https://hilling-traval-agency-backend-production.up.railway.app
+          let res= await axios.post(`https://hilling-traval-agency-backend-production.up.railway.app/signup`,{
             fname: newUsername.name,
             lname: newUsername.lastname,
             email: newUsername.email,

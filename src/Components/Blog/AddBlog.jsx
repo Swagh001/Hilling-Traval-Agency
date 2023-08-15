@@ -25,7 +25,8 @@ const BlogPost = () => {
     const Navigate = useNavigate();
       const fetchData = async (e) => {
         e.preventDefault();
-        const res = await axios.post(`http://localhost:8081/blog`,{
+        // https://hilling-traval-agency-backend-production.up.railway.app/
+        const res = await axios.post(`https://hilling-traval-agency-backend-production.up.railway.app/blog`,{
           name:data.name,
           author:data.author,
           date:data.date,

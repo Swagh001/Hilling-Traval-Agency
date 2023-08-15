@@ -36,7 +36,8 @@ const Blog = () => {
 
     let navigate=useNavigate();
       const fetchData = async () => {
-        const res = await axios.get("http://localhost:8081/blog");
+        // https://hilling-traval-agency-backend-production.up.railway.app
+        const res = await axios.get("https://hilling-traval-agency-backend-production.up.railway.app/blog");
         setData(res.data);
       };
     React.useEffect(()=>{

@@ -27,7 +27,8 @@ const OurWorld = () => {
 
   const fetchData = async () => {
    try{
-    const res = await axios("http://localhost:8081/data",{
+    // https://hilling-traval-agency-backend-production.up.railway.app
+    const res = await axios("https://hilling-traval-agency-backend-production.up.railway.app/data",{
       headers:{
         "Content-type": "application/json",
         "Authorization": `Bearer ${localStorage.getItem("token")}`

@@ -24,7 +24,8 @@ const BlogPost = () => {
     const {id}=useParams();
     // console.log(id);
       const fetchData = async () => {
-        const res = await axios.get(`http://localhost:8081/blog/${id}`);
+        // https://hilling-traval-agency-backend-production.up.railway.app
+        const res = await axios.get(`https://hilling-traval-agency-backend-production.up.railway.app/blog/${id}`);
         // console.log(res.data[0]);
         setPost(res.data[0]);
       };

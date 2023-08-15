@@ -37,7 +37,8 @@ const OurWorldDetails = () => {
   }, []);
 
   const fetchData = async () => {
-    const res = await axios.get(`http://localhost:8081/data/${id}`);
+    // https://hilling-traval-agency-backend-production.up.railway.app
+    const res = await axios.get(`https://hilling-traval-agency-backend-production.up.railway.app/data/${id}`);
     console.log(res.data.data2);
     // console.log(res.data.data);
     let singledata=(res.data.data).filter((elem)=>{
