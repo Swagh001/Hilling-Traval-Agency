@@ -15,6 +15,7 @@ export default function AuthcontextProvider({children}) {
     
       const logout = () => {
         localStorage.setItem("token",JSON.stringify(""));
+        localStorage.setItem("loginUser",JSON.stringify(""));
         setIsLogged(false);
       };
       return (

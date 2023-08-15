@@ -39,7 +39,7 @@ export default function Navbar() {
     // console.log(logindata);
     if(logindata){
 
-      let Jdata=JSON.parse(localStorage.getItem("reservData")) || "";
+      let Jdata=JSON.parse(localStorage.getItem(`${logindata}reservData`)) || "";
       if(Jdata){
         // console.log(Jdata.country);
         alert("Your Journey is set to "+ " " +Jdata.country);
