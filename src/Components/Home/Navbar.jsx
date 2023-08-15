@@ -34,6 +34,20 @@ export default function Navbar() {
 
   // console.log(isLogged);
 
+  const handleJdata=()=>{
+    let logindata=JSON.parse(localStorage.getItem("loginUser")) || "";
+    // console.log(logindata);
+    if(logindata){
+
+      let Jdata=JSON.parse(localStorage.getItem("reservData")) || "";
+      console.log(Jdata.country);
+      alert("Your Journey is set to "+ " " +Jdata.country);
+    }
+    else{
+      alert("no data found");
+    }
+    
+  }
 
   return (
     <Box>
@@ -92,6 +106,7 @@ export default function Navbar() {
           {
             isLogged?
             <>
+              <Button onClick={handleJdata}>My Journy Details</Button>
               <h1>Welcome {JSON.parse(localStorage.getItem("loginUser"))}</h1>
               <Button
               as={'a'}
@@ -100,8 +115,7 @@ export default function Navbar() {
               variant={'link'}
               href={'#'}
               color={"white"}
-              onClick={logout}
-            >
+              onClick={logout}>
               Logout
             </Button>
             </>

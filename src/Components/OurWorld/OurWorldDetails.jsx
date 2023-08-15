@@ -52,10 +52,12 @@ const OurWorldDetails = () => {
     console.log(singledata);
     setProperty(singledata[0]);
   };
-  const handlereserve=()=>{
-    // <Link to="/address"></Link>
+  const handlereserve=async ()=>{
     if(isLogged){
-        navigate("/address")
+        let reservData=await axios.get("https://hilling-traval-agency-backend-production.up.railway.app/data");
+        console.log(reservData.data[0]);
+        localStorage.setItem("reservData",JSON.stringify(reservData.data[0]));
+        // navigate("/address")
     }
     else{
         alert("please login first");
