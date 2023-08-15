@@ -40,8 +40,13 @@ export default function Navbar() {
     if(logindata){
 
       let Jdata=JSON.parse(localStorage.getItem("reservData")) || "";
-      console.log(Jdata.country);
-      alert("Your Journey is set to "+ " " +Jdata.country);
+      if(Jdata){
+        // console.log(Jdata.country);
+        alert("Your Journey is set to "+ " " +Jdata.country);
+      }
+      else{
+        alert("no data found");
+      }
     }
     else{
       alert("no data found");
