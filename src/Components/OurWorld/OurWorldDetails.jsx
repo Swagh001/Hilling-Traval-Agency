@@ -19,11 +19,17 @@ import {
   // HStack,
   // useBreakpointValue,
 } from "@chakra-ui/react";
+import Footer from "../Home/Footer";
 // import { StarIcon } from "@chakra-ui/icons";
+import {AuthContext} from "../../ContextApi/AuthcontextProvider" 
+import {useContext} from "react";
+import {useNavigate} from "react-router-dom"
 
 const OurWorldDetails = () => {
   const { id } = useParams();
+  let navigate=useNavigate();
   // console.log(id);
+  const { isLogged} =useContext(AuthContext);
   const [property, setProperty] = useState({});
 
   useEffect(() => {
@@ -45,6 +51,15 @@ const OurWorldDetails = () => {
     console.log(singledata);
     setProperty(singledata[0]);
   };
+  const handlereserve=()=>{
+    // <Link to="/address"></Link>
+    if(isLogged){
+        navigate("/address")
+    }
+    else{
+        alert("please login first");
+    }
+}
   return (
     <div>
       <Container maxW={"7xl"}>
@@ -135,7 +150,7 @@ const OurWorldDetails = () => {
               </Box>
               {/*  */}
             </Stack>
-            <Link to={"/address"}>
+            {/* <Link to={"/address"}> */}
               <Button
                 rounded={"none"}
                 w={"full"}
@@ -149,10 +164,11 @@ const OurWorldDetails = () => {
                   transform: "translateY(2px)",
                   boxShadow: "lg",
                 }}
+                onClick={handlereserve}
               >
                 Reserve
               </Button>
-            </Link>
+            {/* </Link> */}
 
             <Stack
               direction="row"
@@ -165,6 +181,7 @@ const OurWorldDetails = () => {
         </SimpleGrid>
       </Container>
       {/*  */}
+      <Footer/>
     </div>
   );
 };

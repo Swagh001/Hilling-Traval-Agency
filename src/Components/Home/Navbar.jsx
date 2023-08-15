@@ -20,6 +20,8 @@ import {
 } from '@chakra-ui/icons';
 import { Link as ReactRouterLink } from 'react-router-dom'; // Import React Router's Link component
 import Logo from "./Images/Logo.jpg";
+import {AuthContext} from "../../ContextApi/AuthcontextProvider" 
+import {useContext} from "react";
 
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
@@ -27,7 +29,10 @@ export default function Navbar() {
   const linkColor = useColorModeValue('white', 'gray.200');
   const linkHoverColor = useColorModeValue('gray.800', 'white');
   const popoverContentBgColor = useColorModeValue('white', 'gray.800');
+  
+  const { isLogged,logout } =useContext(AuthContext);
 
+  // console.log(isLogged);
 
 
   return (
@@ -84,7 +89,24 @@ export default function Navbar() {
           spacing={6}
         >
           {/* check local storage */}
-          <Button
+          {
+            isLogged?
+            <>
+              <h1>Welcome {JSON.parse(localStorage.getItem("loginUser"))}</h1>
+              <Button
+              as={'a'}
+              fontSize={'sm'}
+              fontWeight={600}
+              variant={'link'}
+              href={'#'}
+              color={"white"}
+              onClick={logout}
+            >
+              Logout
+            </Button>
+            </>
+            :
+            <><Button
             as={'a'}
             fontSize={'sm'}
             fontWeight={600}
@@ -106,7 +128,8 @@ export default function Navbar() {
             }}
           >
            <ReactRouterLink to="/signup"> Sign Up</ReactRouterLink>
-          </Button>
+          </Button></>
+          }
         </Stack>
       </Flex>
 

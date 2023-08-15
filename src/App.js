@@ -9,10 +9,10 @@ function App() {
     <div className="App">
       <Navbar />
       <AllRoutes />
-      <footer>
-      {/* <Footer /> */}
+      {/* <footer>
+      <Footer />
 
-      </footer>
+      </footer> */}
     </div>
   );
 }

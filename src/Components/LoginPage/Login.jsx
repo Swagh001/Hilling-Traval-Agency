@@ -15,14 +15,14 @@ import {
 
 
   import { useContext, useState } from "react";
-  import { useNavigate ,Link} from "react-router-dom";
+  import { useNavigate ,Link, json} from "react-router-dom";
   import { AuthContext } from "../../ContextApi/AuthcontextProvider";
   import axios from 'axios';
   
-  
   export default function Login() {
 
-    const {login} =useContext(AuthContext);
+    const { isLogged, login, logout }
+     = useContext(AuthContext);
     const   Navigate=useNavigate();
     const toast=useToast();
     const [email, setEmail] = useState("");
@@ -50,7 +50,9 @@ import {
             alert("login Done");
             const token = res.data.token;
             localStorage.setItem("token", token);
-            // Navigate("/");
+            login();
+            localStorage.setItem("loginUser",JSON.stringify(email.split("@")[0]));
+            Navigate("/");
           }
         }
         catch(err){
@@ -85,6 +87,7 @@ import {
               <FormControl id="email">
                 <FormLabel>Email address</FormLabel>
                 <Input type="email"
+                style={{width:"100%"}}
                  value={email}
                  onChange={(e) => setEmail(e.target.value)}
                  
@@ -94,6 +97,7 @@ import {
               <FormControl id="password">
                 <FormLabel>Password</FormLabel>
                 <Input type="password" 
+                style={{width:"100%"}}
                  value={password}
                  onChange={(e) => setPassword(e.target.value)}
                  variant="filled"

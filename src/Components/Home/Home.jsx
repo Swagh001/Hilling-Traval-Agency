@@ -25,6 +25,7 @@ import logo2 from "./Images/ComLogo/logo2.jpg"
 import logo3 from "./Images/ComLogo/logo3.jpg"
 import logo4 from "./Images/ComLogo/logo4.jpg"
 import {Link} from "react-router-dom";
+import Footer from './Footer';
 
 const Home = () => {
 
@@ -405,7 +406,7 @@ const Home = () => {
     </Box>
 
 
-  {/* <Footer/> */}
+  <Footer/>
   </Box>
 
 

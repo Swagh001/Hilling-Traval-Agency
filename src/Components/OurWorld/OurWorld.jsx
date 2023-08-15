@@ -16,6 +16,7 @@ import {
   Stack,
 } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
+import Footer from "../Home/Footer";
 
 const OurWorld = () => {
   const [properties, setProperties] = useState([]);
@@ -57,7 +58,7 @@ const OurWorld = () => {
   };
 
   const filteredProperties = properties.filter((property) => {
-    const title = property.country.toLowerCase();
+    const title = property.country ? property.country.toLowerCase() : '';
     return title.includes(searchTerm.toLowerCase());
   });
 
@@ -313,6 +314,7 @@ const OurWorld = () => {
           </GridItem>
         ))}
       </Grid>
+      <Footer/>
     </>
   );
 };

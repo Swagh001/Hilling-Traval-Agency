@@ -106,7 +106,7 @@ import axios from 'axios';
                     <FormLabel>First Name</FormLabel>
                     <Input 
                     type="text" 
-
+                    style={{width:"100%"}}
                       variant="filled"
                       bg={"purple.50"}
                       value={newUsername.name}
@@ -119,6 +119,7 @@ import axios from 'axios';
                   <FormControl id="lastName">
                     <FormLabel>Last Name</FormLabel>
                     <Input type="text"
+                    style={{width:"100%"}}
                      variant="filled"
                      bg={"purple.50"}
                      value={newUsername.lastname}
@@ -130,7 +131,7 @@ import axios from 'axios';
               <FormControl id="email" isRequired>
                 <FormLabel>Email address</FormLabel>
                 <Input type="email"
-
+                style={{width:"100%"}}
                  variant="filled"
                  bg={"purple.50"}
                  value={newUsername.email}

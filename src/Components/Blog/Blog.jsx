@@ -26,9 +26,15 @@ import {
 } from '@chakra-ui/react';
 import {Link} from "react-router-dom";
 import Footer from '../Home/Footer';
+import {AuthContext} from "../../ContextApi/AuthcontextProvider" 
+import {useContext} from "react";
+import {useNavigate} from "react-router-dom"
+
 const Blog = () => {
     const[data,setData] = React.useState([]);
+    const { isLogged} =useContext(AuthContext);
 
+    let navigate=useNavigate();
       const fetchData = async () => {
         const res = await axios.get("http://localhost:8081/blog");
         setData(res.data);
@@ -36,10 +42,19 @@ const Blog = () => {
     React.useEffect(()=>{
         fetchData();
     },[]);
+    const handleaddblock=()=>{
+        // <Link to="/addBlog"></Link>
+        if(isLogged){
+            navigate("/addBlog")
+        }
+        else{
+            alert("please login first");
+        }
+    }
 
     return (
         <Box backgroundImage={Nature} backgroundColor={"rgb(124, 141, 211)"} fontSize={"16px"} h={"90vh"} backgroundSize={"cover"} backgroundPosition={"center center"} >
-                            <Button color={"rgb(124, 141, 211)"} mr={"15px"} float={"right"} backgroundColor={"white"} mt={"20px"}><Link to="/addBlog">Add Blog</Link></Button>
+                            <Button color={"rgb(124, 141, 211)"} mr={"15px"} float={"right"} backgroundColor={"white"} mt={"20px"} onClick={handleaddblock}>Add Blog</Button>
 
             <Box>
                 <div justifyContent={"center"} >
