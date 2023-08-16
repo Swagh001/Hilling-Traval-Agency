@@ -58,7 +58,7 @@ const OurWorldDetails = () => {
         console.log(reservData.data[0]);
         let username=JSON.parse(localStorage.getItem("loginUser"));
         localStorage.setItem(`${username}reservData`,JSON.stringify(reservData.data[0]));
-        // navigate("/address")
+        navigate("/address")
     }
     else{
         alert("please login first");
